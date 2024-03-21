@@ -103,16 +103,24 @@ namespace MyRESTServices.Controllers
         //    var results = await _categoryBLL.GetWithPaging(pageNumber, pageSize, name);
         //    return Ok(results);
         //}
-        //public async Task<IActionResult> GetCountCategories(string name)
-        //{
-        //    var results = await _categoryBLL.GetCountCategories(name);
-        //    return Ok(results);
-        //}
+        [HttpGet("GetCountCategories")]
+        public async Task<IActionResult> GetCountCategories(string name = "")
+        {
+            var results = await _categoryBLL.GetCountCategories(name);
+            return Ok(results);
+        }
         [HttpGet("GetByName")]
         public async Task<IActionResult> GetByName(string name)
         {
             var results = await _categoryBLL.GetByName(name);
             return Ok(results);
         }
+        [HttpGet("GetWithPaging")]
+        public async Task<IEnumerable<CategoryDTO>> GetWithPaging(int pageNumber, int pageSize, string name = "")
+        {
+            var results = await _categoryBLL.GetWithPaging(pageNumber, pageSize, name);
+            return results;
+        }
+      
     }
 }

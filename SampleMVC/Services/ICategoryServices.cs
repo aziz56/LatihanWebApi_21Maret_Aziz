@@ -10,5 +10,7 @@ namespace SampleMVC.Services
         Task Update(int id, CategoryUpdateDTO categoryUpdateDTO);
         Task Delete(int id);
         Task<IEnumerable<CategoryDTO>> GetByName(string name);
+        Task<int> GetCountCategories(string name);
+        Task<IEnumerable<CategoryDTO>> GetWithPaging(int pageNumber, int pageSize, string name);
     }
 }
